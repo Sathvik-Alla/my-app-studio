@@ -49,3 +49,7 @@
     scroll-behavior: auto;
   }
 }
+
+.account-heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+}

@@ -6,10 +6,10 @@ actual evidence; pending is a valid state. Keep explanations/help in
 
 ## Current stage
 
-- **Current feature:** APP-001.
-- **Status:** Animated Realms homepage built and full APP-001 check passed, including Chromium and the previously blocked symbolic-link test.
-- **Next step:** Review the APP-001 pull request and its CI results.
-- **Implementation marker:** `implemented_through: 1`.
+- **Current feature:** APP-002.
+- **Status:** APP-002 account flow implemented. Full cumulative checks passed, including Chromium.
+- **Next step:** Review the APP-002 PR and CI results.
+- **Implementation marker:** `implemented_through: 2`.
 
 This repository owns application code. Server/proxy changes and production
 deployment are outside these three local-development lessons. Prepared helpers
@@ -42,9 +42,11 @@ helpers; keep data local. New accounts cannot choose their role.
 
 | Decision | Agreement |
 |---|---|
-| Expected public/private behavior and account flow | Pending |
-| Valid and rejected cases to demonstrate | Pending |
-| Own issue / branch / PR | Pending |
+| Expected public/private behavior and account flow | Keep the Animated Realms homepage public. Visitors can sign up as members, log in, access a private dashboard, and log out. |
+| Prediction | Opening `/dashboard` before login redirects to the login page without showing private information. After login the dashboard opens. After logout access is denied again. |
+| Valid and rejected cases to demonstrate | Valid signup and login grant dashboard access. Direct dashboard visits before login and after logout redirect to login. |
+| Keep decision | Keep the current flow. The learner found it easy to use, confirmed that logout redirected a later dashboard visit to login, and felt the 15-character minimum encourages stronger passwords. |
+| Own issue / branch / PR | [Issue #4](https://github.com/Sathvik-Alla/my-app-studio/issues/4) / `codex/app-002-accounts` / Pending. |
 
 **Keep when:** the agreed forms/API work; duplicate/invalid signup and wrong
 credentials are rejected; passwords are hashed; authentication uses validated,
@@ -83,7 +85,7 @@ customer research or claims that a timestamp proves learning.
 | Feature | Files / own issue / PR | Actual checks and learner observations | Kept / GitHub state |
 |---|---|---|---|
 | APP-001 | [Issue #1](https://github.com/Sathvik-Alla/my-app-studio/issues/1), [brand brief](app/brand.json), [homepage](app/templates/home.html), [navigation](app/templates/base.html), [styles](app/static/site.css), [SVG mark](app/static/logo.svg). PR pending. | Full `python studio.py check --lesson APP-001` passed, including two homepage contracts and two Chromium tests. AI verified category navigation at 1280 and 390 pixels. Learner previewed the branded page in Chrome. | Learner chose to keep the design. Learner evidence reviewed and approved. Issue open. |
-| APP-002 | Pending | Unfinished; explicit contracts not yet passed | Pending |
+| APP-002 | [Issue #4](https://github.com/Sathvik-Alla/my-app-studio/issues/4), [account routes](app/features/accounts.py), [forms](app/templates/account.html), [dashboard](app/templates/dashboard.html). PR pending. | Full `python studio.py check --lesson APP-002` passed. 96 foundation tests passed with two skips, plus 14 cumulative contracts and two Chromium tests. In Chrome, the learner confirmed public homepage access, the 15-character signup minimum, dashboard access after login, and redirection to login after logout. | Issue open. Learner chose to keep the flow. Learning record reviewed and approved. |
 | APP-003 | Pending | Unfinished; explicit contracts not yet passed | Pending |
 
 The instructor's reference branches show possible implementations. They do not

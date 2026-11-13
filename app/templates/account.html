@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% set signup = action == "signup" %}
+{% set heading = "Create account" if signup else "Log in" %}
+{% block title %}{{ heading }} · {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="panel form-stack" aria-labelledby="account-title">
+  <h1 id="account-title" class="account-heading">{{ heading }}</h1>
+  {% if error %}<p role="alert">{{ error }}</p>{% endif %}
+  <form method="post" action="/{{ action }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <label for="username">Username</label>
+    <input id="username" name="username" value="{{ username }}" autocomplete="username"
+      maxlength="32" required{% if signup %} minlength="3" pattern="[A-Za-z0-9_]{3,32}" aria-describedby="username-help"{% endif %}>
+    {% if signup %}<p id="username-help">Use 3–32 letters, numbers, or underscores.</p>{% endif %}
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password"
+      autocomplete="{{ 'new-password' if signup else 'current-password' }}"
+      maxlength="128" required{% if signup %} minlength="15" aria-describedby="password-help"{% endif %}>
+    {% if signup %}<p id="password-help">Use at least 15 characters.</p>{% endif %}
+    <button type="submit" class="button">{{ heading }}</button>
+  </form>
+  {% if signup %}<p>Already a member? <a href="/login">Log in</a>.</p>
+  {% else %}<p>New to Animated Realms? <a href="/signup">Create an account</a>.</p>{% endif %}
+</section>
+{% endblock %}
