@@ -5,7 +5,7 @@ short words or labeled paraphrases; disclose help and leave missing responses
 pending. The learner reviews, corrects or removes new excerpts before commit/push.
 Accuracy approval is not proof of understanding. Label simulated trials explicitly.
 
-**Available conversation context:** This Studio 2 chat, from local setup through the APP-001 evidence review.
+**Available conversation context:** This Studio 2 chat, from local setup through the APP-002 keep decision.
 
 ## APP-001
 
@@ -20,13 +20,13 @@ Accuracy approval is not proof of understanding. Label simulated trials explicit
 
 ## APP-002
 
-- Prediction: Pending.
-- Check interpretation: Pending.
-- Browser observation: Pending.
-- Keep decision: Pending.
-- Review: Pending.
-- Help/gaps: Pending.
-- Evidence links / next step: Keep APP-001 before agreeing this lesson.
+- Prediction: (learner paraphrase) Opening `/dashboard` without logging in should redirect to the login page without showing private dashboard information. After a successful login, the dashboard should open. After logout, access should end.
+- Check interpretation: (learner paraphrase) If logout only cleared the browser cookie, someone with a copy could still access private account information. The HTTP 401 response confirms that the server rejected the copied session cookie after logout.
+- Browser observation: (learner paraphrase) In Chrome, the Animated Realms homepage remained public. The signup form required a password of at least 15 characters. After logging in, the learner reached their private member dashboard. After logging out and reopening `/dashboard`, they were redirected to login without seeing private information. The learner concluded that dashboard access requires authentication and ends at logout.
+- Keep decision: (learner paraphrase) Keep the current flow because it worked as expected and was easy to use. The homepage stayed public, visitors could sign up, and members could access their private dashboard after login. Reopening the dashboard after logout redirected to login without showing private information. The learner also felt the 15-character minimum encourages stronger passwords.
+- Review: The learner reviewed and approved all five APP-002 entries.
+- Help/gaps: AI proposed keeping the homepage public and adding member signup, login, a private dashboard, and logout. The learner agreed, supplied the dashboard prediction, and approved the plan. AI connected the forms and API to the prepared security helpers, ran the full cumulative checks, and shared the session replay result.
+- Evidence links / next step: [APP-002 issue](https://github.com/Sathvik-Alla/my-app-studio/issues/4) and [account contracts](contracts/test_accounts.py). Review the APP-002 PR and CI results.
 
 ## APP-003
 
