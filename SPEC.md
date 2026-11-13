@@ -7,9 +7,9 @@ actual evidence; pending is a valid state. Keep explanations/help in
 ## Current stage
 
 - **Current feature:** APP-001.
-- **Status:** Neutral foundation; learner scope and decisions pending.
-- **Next step:** Confirm the local clone and SSH origin, run setup and try the page.
-- **Implementation marker:** `studio.json` starts at `implemented_through: 0`.
+- **Status:** Animated Realms homepage built and full APP-001 check passed, including Chromium and the previously blocked symbolic-link test.
+- **Next step:** Review the APP-001 pull request and its CI results.
+- **Implementation marker:** `implemented_through: 1`.
 
 This repository owns application code. Server/proxy changes and production
 deployment are outside these three local-development lessons. Prepared helpers
@@ -23,10 +23,11 @@ Keep account actions honest about their unfinished state.
 
 | Decision | Agreement |
 |---|---|
-| Visitor and concrete use situation | Pending |
-| Reused IS117 brand, or name / promise / primary archetype | Pending |
-| One visible choice and visitor benefit | Pending |
-| Own issue / branch / PR | Pending |
+| Visitor and concrete use situation | Anime, cartoon, and comic fans looking for new shows, characters, and stories. |
+| Reused IS117 brand, promise, and primary archetype | [Animated Realms](https://sathvik-alla.github.io/Project4/), “Find your next animated favorite,” Explorer. |
+| Visual direction | A blue theme inspired by the IS117 site. Feature Anime, Cartoons, and Comics as the three main categories. |
+| Prediction | First-time visitors will find their preferred category more quickly because the three choices are clearly displayed on the homepage. |
+| Own issue / branch / PR | [Issue #1](https://github.com/Sathvik-Alla/my-app-studio/issues/1) / `codex/app-001-animated-realms` / Pending. |
 
 **Keep when:** the agreed identity is visible and usable at desktop/narrow widths;
 full foundation + APP-001 checks pass; AI review and the learner's actual check
@@ -81,7 +82,7 @@ customer research or claims that a timestamp proves learning.
 
 | Feature | Files / own issue / PR | Actual checks and learner observations | Kept / GitHub state |
 |---|---|---|---|
-| APP-001 | Pending | Not run; learner contributions pending | Pending |
+| APP-001 | [Issue #1](https://github.com/Sathvik-Alla/my-app-studio/issues/1), [brand brief](app/brand.json), [homepage](app/templates/home.html), [navigation](app/templates/base.html), [styles](app/static/site.css), [SVG mark](app/static/logo.svg). PR pending. | Full `python studio.py check --lesson APP-001` passed, including two homepage contracts and two Chromium tests. AI verified category navigation at 1280 and 390 pixels. Learner previewed the branded page in Chrome. | Learner chose to keep the design. Learner evidence reviewed and approved. Issue open. |
 | APP-002 | Pending | Unfinished; explicit contracts not yet passed | Pending |
 | APP-003 | Pending | Unfinished; explicit contracts not yet passed | Pending |
 
