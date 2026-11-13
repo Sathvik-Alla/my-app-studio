@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% set heading = "Administration" if admin else "Admin access required" %}
+{% block title %}{{ heading }} · {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="panel form-stack" aria-labelledby="admin-title">
+  <h1 id="admin-title" class="account-heading">{{ heading }}</h1>
+  {% if admin %}
+  <p>Welcome, {{ admin.username }}. Your administrator account has access to this area.</p>
+  <p><a href="/api/admin">View the admin API response</a></p>
+  {% else %}
+  <p>This page requires an administrator account.</p>
+  {% endif %}
+  <p><a href="/dashboard">Back to your member space</a></p>
+</section>
+{% endblock %}

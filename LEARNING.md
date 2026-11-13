@@ -5,7 +5,7 @@ short words or labeled paraphrases; disclose help and leave missing responses
 pending. The learner reviews, corrects or removes new excerpts before commit/push.
 Accuracy approval is not proof of understanding. Label simulated trials explicitly.
 
-**Available conversation context:** This Studio 2 chat, from local setup through the APP-002 keep decision.
+**Available conversation context:** This Studio 2 chat, from local setup through the APP-003 keep decision.
 
 ## APP-001
 
@@ -30,10 +30,10 @@ Accuracy approval is not proof of understanding. Label simulated trials explicit
 
 ## APP-003
 
-- Prediction: Pending.
-- Check interpretation: Pending.
-- Browser observation: Pending.
-- Keep decision: Pending.
-- Review: Pending.
-- Help/gaps: Pending.
-- Evidence links / next step: Keep APP-002 before agreeing this lesson.
+- Prediction: (learner paraphrase) A logged-in member who directly requests `GET /api/admin` should get HTTP 403 Forbidden because they are authenticated and lack administrator permissions. A signed-out visitor should get HTTP 401 Unauthorized. Members should still reach their private dashboard. The learner expects the direct request test to catch an app that checks login but skips the administrator role check.
+- Check interpretation: (learner paraphrase) The same session received HTTP 200 after promotion and HTTP 403 after downgrade without another login. This shows that protected requests use the current database role. The test would catch a session retaining administrator privileges after the user's role was downgraded.
+- Browser observation: (learner paraphrase) In Chrome, opening `/admin` as a signed-in member showed “Admin access required.” After promotion through the trusted CLI in Git Bash, refreshing `/admin` in the same session showed “Administration” and welcomed the administrator account. After downgrade to member through the CLI, another refresh showed “Admin access required” again.
+- Keep decision: (learner paraphrase) Keep the implementation because it prevents members from accessing administrator-only information and removes administrator privileges on the first protected request after a downgrade.
+- Review: The learner reviewed and approved all five APP-003 entries.
+- Help/gaps: AI prompted the direct API prediction, implemented the approved role checks using the prepared helper, ran the full cumulative checks, shared the same-session Chromium result, and provided the CLI steps for the learner's Chrome test.
+- Evidence links / next step: [APP-003 issue](https://github.com/Sathvik-Alla/my-app-studio/issues/6) and [role contracts](contracts/test_roles.py). Review the APP-003 pull request and CI results.

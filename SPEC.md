@@ -6,10 +6,10 @@ actual evidence; pending is a valid state. Keep explanations/help in
 
 ## Current stage
 
-- **Current feature:** APP-002.
-- **Status:** APP-002 account flow implemented. Full cumulative checks passed, including Chromium.
-- **Next step:** Review the APP-002 PR and CI results.
-- **Implementation marker:** `implemented_through: 2`.
+- **Current feature:** APP-003.
+- **Status:** APP-003 implemented and cumulative checks passed.
+- **Next step:** Review the APP-003 pull request and CI results.
+- **Implementation marker:** `implemented_through: 3`.
 
 This repository owns application code. Server/proxy changes and production
 deployment are outside these three local-development lessons. Prepared helpers
@@ -68,9 +68,13 @@ permissions, including for an existing session after a role change.
 
 | Decision | Agreement |
 |---|---|
-| Intended admin-only result | Pending |
-| Actual allowed/denied request evidence | Pending |
-| Own issue / branch / PR | Pending |
+| Intended admin-only result | Only administrators can open `/admin` and receive protected data from `GET /api/admin`. Signed-in members retain dashboard access. |
+| Prediction | A logged-in member who directly requests `GET /api/admin` receives HTTP 403 because their account lacks administrator permissions. A signed-out visitor receives HTTP 401. |
+| Actual allowed/denied request evidence | `GET /api/admin` returned 401 when signed out, 403 for a member, and 200 for an administrator. Chromium verified that promotion and downgrade through the trusted CLI changed access in the same session. |
+| Learner check interpretation | The same session received 200 after promotion and 403 after downgrade. The learner explained that the final 403 would catch an existing session retaining outdated administrator privileges. |
+| Learner browser observation | In Chrome, `/admin` showed “Admin access required” as a member, “Administration” after CLI promotion, and “Admin access required” after CLI downgrade. The learner refreshed the page in the same session. |
+| Keep decision | Keep the implementation because members cannot access administrator-only information and a downgrade removes administrator access on the next protected request. |
+| Own issue / branch / PR | [Issue #6](https://github.com/Sathvik-Alla/my-app-studio/issues/6) / `codex/app-003-roles` / Pending. |
 
 **Keep when:** a direct request cannot bypass the role boundary, role changes
 take effect as specified, new signup remains member-only, and full cumulative
@@ -86,7 +90,7 @@ customer research or claims that a timestamp proves learning.
 |---|---|---|---|
 | APP-001 | [Issue #1](https://github.com/Sathvik-Alla/my-app-studio/issues/1), [brand brief](app/brand.json), [homepage](app/templates/home.html), [navigation](app/templates/base.html), [styles](app/static/site.css), [SVG mark](app/static/logo.svg). PR pending. | Full `python studio.py check --lesson APP-001` passed, including two homepage contracts and two Chromium tests. AI verified category navigation at 1280 and 390 pixels. Learner previewed the branded page in Chrome. | Learner chose to keep the design. Learner evidence reviewed and approved. Issue open. |
 | APP-002 | [Issue #4](https://github.com/Sathvik-Alla/my-app-studio/issues/4), [account routes](app/features/accounts.py), [forms](app/templates/account.html), [dashboard](app/templates/dashboard.html). PR pending. | Full `python studio.py check --lesson APP-002` passed. 96 foundation tests passed with two skips, plus 14 cumulative contracts and two Chromium tests. In Chrome, the learner confirmed public homepage access, the 15-character signup minimum, dashboard access after login, and redirection to login after logout. | Issue open. Learner chose to keep the flow. Learning record reviewed and approved. |
-| APP-003 | Pending | Unfinished; explicit contracts not yet passed | Pending |
+| APP-003 | [Issue #6](https://github.com/Sathvik-Alla/my-app-studio/issues/6), [protected routes](app/features/roles.py), [admin page](app/templates/admin.html). PR pending. | Full `python studio.py check --lesson APP-003` passed. 96 foundation tests passed with two skips, plus 18 cumulative contracts and two Chromium tests. The learner confirmed promotion and downgrade in the same Chrome session. | Issue open. Learner chose to keep the implementation. Learning record reviewed and approved. |
 
 The instructor's reference branches show possible implementations. They do not
 establish this repository's completion or the learner's own reasoning.
