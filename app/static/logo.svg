@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="Neutral project mark"><rect x="3" y="3" width="42" height="42" rx="12" fill="#285A50"/><path d="M15 31V17h18M22 31V24h11" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="Animated Realms compass">
+  <rect width="48" height="48" rx="12" fill="#1748B5"/>
+  <circle cx="24" cy="24" r="15" fill="none" stroke="#83D9FF" stroke-width="2"/>
+  <path d="m31 16-3 12-11 4 4-12Z" fill="#FFFFFF"/>
+  <path d="m17 32 4-12 7 8Z" fill="#83D9FF"/>
+</svg>

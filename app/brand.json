@@ -1,16 +1,16 @@
 {
-  "name": "Your Project",
-  "audience": "Not chosen yet",
-  "archetype": "Not chosen yet",
-  "promise": "Not chosen yet",
-  "headline": "A small idea. A real application.",
-  "summary": "This working page is your starting point. Give it a purpose and a brand, then build accounts and permissions one feature at a time.",
-  "voice": ["Not chosen yet"],
-  "design_direction": "Not chosen yet",
+  "name": "Animated Realms",
+  "audience": "Anime, cartoon, and comic fans looking for new shows, characters, and stories.",
+  "archetype": "Explorer",
+  "promise": "Find your next animated favorite",
+  "headline": "Find your next animated favorite",
+  "summary": "Discover new shows, characters, and stories across anime, cartoons, and comics.",
+  "voice": ["curious", "inviting"],
+  "design_direction": "A blue palette inspired by the IS117 site, with three clearly labeled starting points.",
   "palette": {
-    "ink": "#182C34",
-    "paper": "#F6F5EF",
-    "accent": "#285A50",
+    "ink": "#102348",
+    "paper": "#EFF5FF",
+    "accent": "#1748B5",
     "surface": "#FFFFFF"
   }
 }
